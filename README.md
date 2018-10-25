@@ -1,9 +1,9 @@
-# Variational dropout and its modifications
-In this project we apply [structured bayesian pruning] to various kinds of nueral architectures. Also, we test another kind of dropout on the same set of architectures. Finally, we make a comparison between the approaches.
+# Variational Dropout and Neural Networks Sparsification
+In this project we demonstrate how variational dropout can sparsify weight matrices of a fully connected neural network. The idea is taken from [here].
 
 Team:
 - Ilia Luchnikov
 - Marsel Faizullin
 - Maxim Blumental
 
-[structured bayesian pruning]: https://arxiv.org/pdf/1705.07283.pdf
+[here]: https://arxiv.org/pdf/1701.05369.pdf
