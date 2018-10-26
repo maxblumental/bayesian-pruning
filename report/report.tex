@@ -1,0 +1,86 @@
+\documentclass{article}
+
+
+\usepackage{arxiv}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{lipsum}
+\usepackage{graphicx}
+
+\title{Sparsification of Neural Networks with Variational Dropout}
+
+
+\author{
+  Ilia Luchnikov\\
+  \texttt{luchnikovilya@gmail.com} \\
+  %% examples of more authors
+   \And
+ Marsel Faizullin \\
+  \texttt{marsel.faizullin@skoltech.ru} \\
+   \And
+ Max Blumental \\
+  \texttt{bvmaks@gmail.com} \\
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+In this project we apply variational dropout to a fully connected neural network in order to sparsify it. The idea for the project is taken from "Variational Dropout Sparsifies Deep Neural Networks" article by Dmitry Molchanov and Arsenii Ashukha.
+\end{abstract}
+
+
+% keywords can be removed
+\keywords{Variational Dropout, Sparsity}
+
+\section{Introduction}
+We considered classification on MNIST dataset. In our experiments we had 2- and 3-layers fully connected networks with Bernoulli, Gaussian and Variational Gaussian dropouts. We implemented variational dropout in the way described in the above mentioned article in order to achieve sparsity.
+
+\subsection{Architectures}
+At the table below are represented 3 architectures which we implemented.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{NNTable.pdf}
+    \caption{Summary of architectures}
+    \label{fig:my_label}
+\end{figure}
+
+\newpage
+
+
+\subsection{Results}
+
+Here is the list of takeaways from the project:
+
+\begin{itemize}
+    \item Variational dropout actually causes sparsity (see animation on Github).
+    \item There is a tradeoff between sparsity and prediction accuracy. We can manage it varying $\alpha$.
+    \item It is hard to make the training process stable. Whatever initialization and numerical tricks you do, after some sufficiently large number of iterations you will get $\texttt{NaN}$.
+\end{itemize}
+
+\subsection{Project development}
+
+\begin{itemize}
+    \item Consider other neural architectures.
+    \item Check how variational dropout prevents networks from overfitting.
+    \item Implement structured pruning.
+\end{itemize}
+
+
+\section{Contribution of participants}
+
+\begin{enumerate}
+    \item Ilia Luchnikov: 3-layer NN with variational dropout, visualization of sparsity.
+    \item Marsel Faizullin: Implementation and comparison of Bernoullian and Gaussian Dropouts
+    \item Maxim Blumental: Implemented 2-layer FC network with variational dropout using authors' tricks. Visualized sparsity in my notebook.
+\end{enumerate}
+
+\end{document}
+
